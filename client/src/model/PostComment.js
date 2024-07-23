@@ -1,4 +1,4 @@
-class PostCommentModel {
+class PostComment {
     constructor(commentId, postId, parentCommentId, authorId, authorUsername, authorAvatarUrl, content, publishDate, ageMin, likeCount, childComments) {
         this.commentId = commentId;
         this.postId = postId;

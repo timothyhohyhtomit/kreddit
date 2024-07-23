@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./PostAddComment.css";
+import "./PostAddCommentView.css";
 
-function PostAddComment({ newComment, setNewComment, handleClickSubmit, addCommentInputRef }) {
+function PostAddCommentView({ newComment, setNewComment, handleClickSubmit, addCommentInputRef }) {
     return (
         <div className="post-add-comment">
             <div className="post-add-comment-content">
@@ -13,4 +13,4 @@ function PostAddComment({ newComment, setNewComment, handleClickSubmit, addComme
     );
 }
 
-export default PostAddComment;
+export default PostAddCommentView;

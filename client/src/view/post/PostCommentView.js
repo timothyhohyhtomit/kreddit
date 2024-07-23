@@ -1,6 +1,8 @@
 import React from "react";
 
-function PostComment({ comment }) {
+import "./PostCommentView.css";
+
+function PostCommentView({ comment }) {
     return (
         <div className="post-comment">
             {/* header: avatar username • publishTime */}
@@ -27,4 +29,4 @@ function PostComment({ comment }) {
     );
 }
 
-export default PostComment;
+export default PostCommentView;
