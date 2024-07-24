@@ -2,9 +2,11 @@ import React from "react";
 
 import PostView from "../../view/post/PostView";
 
-function PostContainer() {
+function PostContainer({ post }) {
     return (
-        <PostView />
+        <PostView
+            post={post}
+        />
     );
 }
 
