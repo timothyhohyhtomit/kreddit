@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import postRouter from "./post/post.js";
+import postRouter from "./routes/post/post.js";
 import userRouter from "./user/user.js";
 
 import multer from "multer";
