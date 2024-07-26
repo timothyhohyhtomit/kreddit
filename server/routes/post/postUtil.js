@@ -74,4 +74,4 @@ export const addPost = (ownerId, post) => {
         console.log("In postUtil.js, addPost(): " + err.message);
         throw new Error(err);
     });
-}
+};
