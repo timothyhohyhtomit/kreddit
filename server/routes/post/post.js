@@ -46,3 +46,29 @@ postRouter.get("/:postId", authenticateToken, async (req, res) => {
     // request post details
     return getPost(postId);
 });
+
+/* Post Creation
+Input:
+- user_id: int
+- post: object
+Output:
+*/
+postRouter.post("/create", authenticateToken, async (req, res) => {
+    // extract user_id
+    const ownerId = req.user.id;
+    const { title, content } = req.body;
+    // create a new post on database and return post_id
+    try {
+        const postId = await addPost(ownerId, {
+            title,
+            content
+        });
+        res.status(201).json({
+            postId
+        });
+    } catch (err) {
+        res.status(500).json({
+            error: "Could not create a post: " + err.message
+        });
+    }
+});

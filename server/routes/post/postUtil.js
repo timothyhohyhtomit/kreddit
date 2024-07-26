@@ -42,9 +42,9 @@ export const getPost = async (postId) => {
 /* Post Like Count Fetching
 getPostLikeCount() returns the number of likes a post has received.
 Inputs:
-- postId
+- postId: int
 Output:
-- integer: number of likes
+- number of likes: int
 */
 export const getPostLikeCount = (postId) => {
     return query(`
@@ -55,3 +55,23 @@ export const getPostLikeCount = (postId) => {
         throw new Error(err.message);
     });
 };
+
+/* Post Creation
+addPost() creates a new post on database.
+Input:
+- ownerId: int
+- post: object
+Output:
+- postId: int
+*/
+export const addPost = (ownerId, post) => {
+    return query(`
+        INSERT INTO post (owner_id, title, content)
+        VALUES (${ownerId}, '${post.title}', '${post.content}')
+        RETURNING id
+    `).then(result => result[0].id)
+    .catch(err => {
+        console.log("In postUtil.js, addPost(): " + err.message);
+        throw new Error(err);
+    });
+}
