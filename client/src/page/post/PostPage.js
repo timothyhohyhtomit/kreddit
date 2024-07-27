@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import PostContainer from "../../container/post/PostContainer";
 import { useNavigate, useParams } from "react-router-dom";
+
+import PostView from "../../view/post/PostView";
 
 function PostPage({ isLoggedIn, user }) {
     // states
@@ -8,6 +9,7 @@ function PostPage({ isLoggedIn, user }) {
     const [isAvailable, setAvailable] = useState(true);
     const [postUnavailableText, setPostUnavailableText] = useState("");
     const [post, setPost] = useState({});
+    const [newComment, setNewComment] = useState("");
     // navigate
     const navigate = useNavigate();
     // effects
@@ -33,8 +35,15 @@ function PostPage({ isLoggedIn, user }) {
         });
     }, []);
     return (
-        <PostContainer
-            post={post}
+        <PostView
+            authorProfilePictureUrl={post.author_avatar_url}
+            authorUsername={post.author_username}
+            title={post.title}
+            content={post.content}
+            newComment={newComment}
+            setNewComment={setNewComment}
+            handlePostAddCommentClickSubmit={handlePostAddCommentClickSubmit}
+            addCommentInputRef={addCommentInputRef}
         />
     );
 }

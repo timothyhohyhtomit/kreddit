@@ -1,8 +1,8 @@
 import React from "react";
 
-import PostAddCommentContainer from "../../container/post/PostAddCommentContainer";
+import PostAddCommentView from "./PostAddCommentView";
 
-function PostView({ authorProfilePictureUrl, authorUsername, imageUrl, likeCount, title, content, newComment, setNewComment, handlePostAddCommentClickSubmit, addCommentInputRef }) {
+function PostView({ authorProfilePictureUrl, authorUsername, likeCount, title, content, newComment, setNewComment, handlePostAddCommentClickSubmit, addCommentInputRef }) {
     return (
         <div className="post">
             <div className="post-header">
@@ -22,7 +22,9 @@ function PostView({ authorProfilePictureUrl, authorUsername, imageUrl, likeCount
                 <div className="post-share"></div>
                 <div className="post-save"></div>
             </div>
-            <PostAddCommentContainer
+            <PostAddCommentView
+                newComment={newComment}
+                setNewComment={setNewComment}
                 handleClickSubmit={handlePostAddCommentClickSubmit}
                 addCommentInputRef={addCommentInputRef}
             />

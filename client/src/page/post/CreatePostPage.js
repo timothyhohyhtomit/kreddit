@@ -1,10 +1,17 @@
 import React from "react";
 
-import CreatePostContainer from "../../container/post/CreatePostContainer";
+import CreatePostView from "../../view/post/CreatePostView";
+
+const TAB_ENUM = {
+    text: 1,
+    images: 2
+};
 
 function CreatePostPage() {
+    // states
+    const [selectedTab, setSelectedTab] = useState(TAB_ENUM.text);
     return (
-        <CreatePostContainer
+        <CreatePostView
             handleCreatePostSubmit={handleCreatePostSubmit}
         />
     );
