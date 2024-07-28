@@ -5,7 +5,7 @@ function CreatePostView({ selectedTab, setSelectedTab, title, setTitle, content,
         <>
             <CreatePostHeaderView />
             <CreatePostSelectTabsView />
-            <CreatePostBodyView />
+            <CreatePostTextBodyView />
         </>
     );
 }
