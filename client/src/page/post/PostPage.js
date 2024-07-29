@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import PostView from "../../view/post/PostView";
+import { SERVER_URL } from "../../app/configuration";
 
 function PostPage({ isLoggedIn, user }) {
     // states

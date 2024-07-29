@@ -2,6 +2,7 @@ import React from "react";
 
 import CreatePostView from "../../view/post/CreatePostView";
 import { post } from "../../app/constant";
+import { SERVER_URL } from "../../app/configuration";
 
 function CreatePostPage() {
     // tabs
@@ -34,6 +35,20 @@ function CreatePostPage() {
         }
         if (isValid) {
             // send a request to server
+            fetch(SERVER_URL + "/post/create", {
+                body
+            }).then(response => {
+                if (response.status !== 201) {
+                    setError((prev) => [...prev, post.create.error.SERVER_ERROR]);
+                }
+                return response.json();
+            }).then(jsonData => {
+                if (jsonData.error) throw new Error(jsonData.error);
+                const postId = jsonData.postId;
+                // navigate to post page
+            }).catch(err => {
+                alert("Post (post_id=" + postId + ") is unavailable: " + err.message);
+            });
         }
     };
     return (

@@ -25,6 +25,9 @@ export const post = {
                 NOT_EMPTY: "Post content cannot be empty.",
                 EXCEED_LIMIT: "Post content cannot exceed a maximum of 2000 characters."
             }
+        },
+        error: {
+            SERVER_ERROR: "Server error. A new post could not be created"
         }
     }
 };
