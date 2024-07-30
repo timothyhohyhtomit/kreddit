@@ -1,4 +1,5 @@
 import express from "express";
+import { authenticateTokenL1, authenticateTokenL2 } from "../../middleware/middleware.js";
 // database
 // import { query } from "../../db/util.js";
 // token authentication middleware
@@ -36,7 +37,7 @@ postRouter.use("./images", express.static(path.join(__dirname, "images")));
     commentCount
 }
 */
-postRouter.get("/:postId", authenticateToken, async (req, res) => {
+postRouter.get("/:postId", authenticateTokenL1, async (req, res) => {
     // extract user_id, post_id and author_id
     const userId = req.user.id;
     const postId = parseInt(req.params.postId);
@@ -53,7 +54,7 @@ Input:
 - post: object
 Output:
 */
-postRouter.post("/create", authenticateToken, async (req, res) => {
+postRouter.post("/create", authenticateTokenL2, async (req, res) => {
     // extract user_id
     const ownerId = req.user.id;
     const { title, content } = req.body;
