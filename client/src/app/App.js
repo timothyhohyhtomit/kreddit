@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useReducer, useState } from "react";
 import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route, Routes } from "react-router-dom";
 import PostPage from "../page/post/PostPage";
 import CreatePostPage from "../page/post/CreatePostPage";
+import HomePage from "../page/general/MainPage";
 
 function App() {
     // STATES
@@ -11,7 +12,7 @@ function App() {
     const appRouter = createBrowserRouter(createRoutesFromElements(
         <Route path="/" element={<></>}>
             <Route index element={
-                <></>
+                <HomePage />
             } />
             <Route path="post">
                 <Route path=":postId" element={
