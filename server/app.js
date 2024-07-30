@@ -5,7 +5,7 @@ import postRouter from "./routes/post/post.js";
 import multer from "multer";
 import path from "path";
 import url from "url";
-import { authenticateToken } from "./middleware/middleware.js";
+import { authenticateTokenL2 } from "./middleware/middleware.js";
 
 const app = express();
 const PORT = 5000;
@@ -23,7 +23,7 @@ app.use((err, req, res, next) => {
 });
 
 // routes
-app.use("/user", userRouter);
+//app.use("/user", userRouter);
 app.use("/post", postRouter);
 
 // configure Multer storage
@@ -40,7 +40,7 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 // handle file uploads
-app.post("/upload", authenticateToken, upload.array("post-create-media-upload", 5), (req, res) => {
+app.post("/upload", authenticateTokenL2, upload.array("post-create-media-upload", 5), (req, res) => {
     console.log("Received request...");
     // 'mediaFiles' should match the name attribute in your HTML form 
     // Access the uploaded files in req.files
@@ -61,7 +61,7 @@ app.post("/upload", authenticateToken, upload.array("post-create-media-upload", 
     });
 });
 
-app.post("/upload2", authenticateToken, upload.array("post-create-media-upload"), (req, res) => {
+app.post("/upload2", authenticateTokenL2, upload.array("post-create-media-upload"), (req, res) => {
     console.log("Received request for /upload2...");
     let ss = "";
     for (const key of Object.keys(req)) ss += `[${key}]\n`;

@@ -4,6 +4,12 @@ import { authenticateTokenL1, authenticateTokenL2 } from "../../middleware/middl
 // import { query } from "../../db/util.js";
 // token authentication middleware
 
+// image storage
+import multer from "multer";
+import path from "path";
+import url from "url";
+import fs from "fs";
+
 
 const postRouter = express.Router();
 postRouter.use(express.json());
@@ -73,3 +79,5 @@ postRouter.post("/create", authenticateTokenL2, async (req, res) => {
         });
     }
 });
+
+export default postRouter;
