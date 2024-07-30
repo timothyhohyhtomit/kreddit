@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import PostView from "../../view/post/PostView";
@@ -35,6 +35,14 @@ function PostPage({ isLoggedIn, user }) {
             alert("Post (post_id=" + postId + ") is unavailable: " + err.message);
         });
     }, []);
+    // references
+    const addCommentInputRef = useRef();
+    // handlers
+    // post comment
+    const handleClickComment = (e) => {
+        addCommentInputRef.current.focus();
+    }
+    const handlePostAddCommentClickSubmit = (e) => {};
     return (
         <PostView
             authorProfilePictureUrl={post.author_avatar_url}

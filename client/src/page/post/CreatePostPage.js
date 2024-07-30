@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import CreatePostView from "../../view/post/CreatePostView";
 import { post } from "../../app/constant";
@@ -6,7 +6,7 @@ import { SERVER_URL } from "../../app/configuration";
 
 function CreatePostPage() {
     // tabs
-    const [selectedTab, setSelectedTab] = useState(TAB_ENUM.text);
+    const [selectedTab, setSelectedTab] = useState(post.create.tab.TAB_ENUM.text);
     // title
     const [title, setTitle] = useState("");
     // content
@@ -36,7 +36,16 @@ function CreatePostPage() {
         if (isValid) {
             // send a request to server
             fetch(SERVER_URL + "/post/create", {
-                body
+                method: "POST",
+                /*
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem("access_token")
+                },
+                */
+                body: {
+                    title,
+                    content
+                }
             }).then(response => {
                 if (response.status !== 201) {
                     setError((prev) => [...prev, post.create.error.SERVER_ERROR]);
@@ -47,7 +56,7 @@ function CreatePostPage() {
                 const postId = jsonData.postId;
                 // navigate to post page
             }).catch(err => {
-                alert("Post (post_id=" + postId + ") is unavailable: " + err.message);
+                alert("Unable to create a new post: " + err.message);
             });
         }
     };

@@ -1,6 +1,8 @@
 import React from "react";
 
 import { TAB_ENUM } from "../../app/constant";
+import CreatePostHeaderView from "./CreatePostHeaderView";
+import CreatePostSelectTabsView from "./CreatePostSelectTabsView";
 import CreatePostTextBodyView from "./CreatePostTextBodyView";
 
 function CreatePostView({ selectedTab, setSelectedTab, title, setTitle, content, setContent, handleCreatePostSubmit }) {
