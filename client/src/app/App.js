@@ -3,14 +3,16 @@ import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route, R
 import PostPage from "../page/post/PostPage";
 import CreatePostPage from "../page/post/CreatePostPage";
 import HomePage from "../page/general/MainPage";
+import Root from "../view/general/Root";
 
 function App() {
     // STATES
     // user info
     const [isLoggedIn, setLoggedIn] = useState(localStorage.getItem("user_id") !== null);
+    const [user, setUser] = useState(null);
     // react router
     const appRouter = createBrowserRouter(createRoutesFromElements(
-        <Route path="/" element={<></>}>
+        <Route path="/" element={<Root isLoggedIn={isLoggedIn} user={user} />}>
             <Route index element={
                 <HomePage />
             } />
