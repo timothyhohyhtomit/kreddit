@@ -1,0 +1,8 @@
+.root-header-search-bar {
+    width: 65%;
+    background-color: blue;
+}
+
+.root-header-search-bar > input {
+    background-color: transparent;
+}

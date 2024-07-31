@@ -22,11 +22,6 @@
     padding: 5px;
 }
 
-.root-header-search-bar {
-    width: 65%;
-    background-color: blue;
-}
-
 .root-header-buttons {
     width: 25%;
     display: flex;
