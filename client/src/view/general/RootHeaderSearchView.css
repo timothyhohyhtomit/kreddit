@@ -22,7 +22,19 @@
 .root-header-search-bar-container > input {
     width: 100%;
     background: transparent;
+    border: none;
     outline: none;
     font-size: 125%;
     margin-right: 10px;
+}
+
+.root-header-search-bar-container > input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 1em;
+    width: 1em;
+    border-radius: 50em;
+    background: url('../../../asset/times.svg') no-repeat 50% 50%;
+    background-size: contain;
+    opacity: 0.3;
+    pointer-events: all;
 }

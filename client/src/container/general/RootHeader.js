@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
 
 import RootHeaderView from "../../view/general/RootHeaderView";
 
-function RootHeader({ searchQuery, setSearchQuery, handleClickSearch }) {
-    // navigate
+function RootHeader() {
+    // STATES
+    // search bar
+    const [searchQuery, setSearchQuery] = useState("");
+    // NAVIGATE
     const navigate = useNavigate();
-    // handlers
+    // HANDLERS
+    const handleClickSearch = (e) => {};
     const handleClickCreatePost = (e) => {
         navigate("/post/create");
     };

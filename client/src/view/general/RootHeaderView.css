@@ -3,7 +3,6 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    background-color: orange;
     border: 2px solid black;
     vertical-align: middle;
     margin: 0 auto;
@@ -17,7 +16,6 @@
 .root-header-logo {
     width: 10%;
     font-size: 200%;
-    background-color: green;
     margin: auto;
     padding: 5px;
 }
@@ -28,7 +26,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: right;
-    background-color: purple;
     padding: 5px 15px;
 }
 
