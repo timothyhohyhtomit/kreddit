@@ -1,12 +1,17 @@
 import React from "react";
 
 import "./RootHeaderView.css";
+import RootHeaderSearchView from "./RootHeaderSearchView";
 
-function RootHeaderView({ handleClickCreatePost }) {
+function RootHeaderView({ searchQuery, setSearchQuery, handleClickSearch, handleClickCreatePost }) {
     return (
         <div className="root-header">
             <div className="root-header-logo">Kreddit</div>
-            <div className="root-header-search-bar"></div>
+            <RootHeaderSearchView
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                handleClickSearch={handleClickSearch}
+            />
             <div className="root-header-buttons">
                 <div className="root-header-create-post-button" onClick={handleClickCreatePost}>
                     <svg rpl="" fill="currentColor" height="20" icon-name="plus-sign" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">

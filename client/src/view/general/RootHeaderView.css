@@ -29,6 +29,7 @@
     align-items: center;
     justify-content: right;
     background-color: purple;
+    padding: 5px 15px;
 }
 
 .root-header-create-post-button {

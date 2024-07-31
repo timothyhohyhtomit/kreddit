@@ -3,10 +3,14 @@ import { Outlet } from "react-router-dom";
 
 import RootHeader from "../../container/general/RootHeader";
 
-function Root({ isLoggedIn, user }) {
+function Root({ isLoggedIn, user, searchQuery, setSearchQuery, handleClickSearch, handleClickCreatePost }) {
     return (
         <div className="root">
-            <RootHeader />
+            <RootHeader
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                handleClickCreatePost={handleClickCreatePost}
+            />
             <div className="root-separator"></div>
             <div className="root-outlet">
                 <Outlet />

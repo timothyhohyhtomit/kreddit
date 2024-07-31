@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 
 import RootHeaderView from "../../view/general/RootHeaderView";
 
-function RootHeader() {
+function RootHeader({ searchQuery, setSearchQuery, handleClickSearch }) {
     // navigate
     const navigate = useNavigate();
     // handlers
@@ -12,6 +12,8 @@ function RootHeader() {
     };
     return (
         <RootHeaderView
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
             handleClickCreatePost={handleClickCreatePost}
         />
     );
