@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./CreatePostHeaderView.css";
+
 function CreatePostHeaderView() {
     return (
         <div className="post-create-header">

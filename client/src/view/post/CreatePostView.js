@@ -5,9 +5,11 @@ import CreatePostHeaderView from "./CreatePostHeaderView";
 import CreatePostSelectTabsView from "./CreatePostSelectTabsView";
 import CreatePostTextBodyView from "./CreatePostTextBodyView";
 
+import "./CreatePostView.css";
+
 function CreatePostView({ selectedTab, setSelectedTab, title, setTitle, content, setContent, handleCreatePostSubmit }) {
     return (
-        <>
+        <div className="post-create">
             <CreatePostHeaderView />
             <CreatePostSelectTabsView
                 selectedTab={selectedTab}
@@ -21,7 +23,7 @@ function CreatePostView({ selectedTab, setSelectedTab, title, setTitle, content,
                     setContent={setContent}
                 />
             }
-        </>
+        </div>
     );
 }
 
