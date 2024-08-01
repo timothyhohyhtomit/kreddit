@@ -1,0 +1,9 @@
+.post-create-tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin: 5px;
+    padding: 5px;
+    background-color: transparent;
+}

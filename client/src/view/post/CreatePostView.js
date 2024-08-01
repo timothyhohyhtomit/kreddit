@@ -9,7 +9,10 @@ function CreatePostView({ selectedTab, setSelectedTab, title, setTitle, content,
     return (
         <>
             <CreatePostHeaderView />
-            <CreatePostSelectTabsView />
+            <CreatePostSelectTabsView
+                selectedTab={selectedTab}
+                setSelectedTab={setSelectedTab}
+            />
             { selectedTab === TAB_ENUM.text && 
                 <CreatePostTextBodyView
                     title={title}

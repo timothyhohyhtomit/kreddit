@@ -1,10 +1,24 @@
 import React from "react";
 
+import "./CreatePostSelectTabsView.css";
+import CreatePostTabView from "./CreatePostTabView";
+import { post } from "../../app/constant";
+
 function CreatePostSelectTabsView({ selectedTab, setSelectedTab }) {
     return (
         <div className="post-create-tabs">
-            <div className="post-create-tab" onClick={(e) => setSelectedTab(1)}>Text</div>
-            <div className="post-create-tab" onClick={(e) => setSelectedTab(2)}>Images</div>
+            <CreatePostTabView
+                text="Text"
+                selectedTab={selectedTab}
+                setSelectedTab={setSelectedTab}
+                tabEnum={post.create.tab.TAB_ENUM.text}
+            />
+            <CreatePostTabView
+                text="Images"
+                selectedTab={selectedTab}
+                setSelectedTab={setSelectedTab}
+                tabEnum={post.create.tab.TAB_ENUM.images}
+            />
         </div>
     );
 }
