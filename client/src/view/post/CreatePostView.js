@@ -7,7 +7,7 @@ import CreatePostTextBodyView from "./CreatePostTextBodyView";
 
 import "./CreatePostView.css";
 
-function CreatePostView({ selectedTab, setSelectedTab, title, setTitle, content, setContent, handleCreatePostSubmit }) {
+function CreatePostView({ selectedTab, setSelectedTab, title, setTitle, titleTextareaRef, content, setContent, contentTextareaRef, handleTitleInputChange, handleTitleInputBlur, handleContentInputChange, handleContentInputBlur, handleCreatePostSubmit }) {
     return (
         <div className="post-create">
             <CreatePostHeaderView />
@@ -19,8 +19,13 @@ function CreatePostView({ selectedTab, setSelectedTab, title, setTitle, content,
                 <CreatePostTextBodyView
                     title={title}
                     setTitle={setTitle}
+                    titleTextareaRef={titleTextareaRef}
                     content={content}
                     setContent={setContent}
+                    contentTextareaRef={contentTextareaRef}
+                    handleTitleInputChange={handleTitleInputChange}handleTitleInputBlur={handleTitleInputBlur}
+                    handleContentInputChange={handleContentInputChange}
+                    handleContentInputBlur={handleContentInputBlur}
                 />
             }
         </div>

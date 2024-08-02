@@ -20,7 +20,7 @@ export const post = {
             }
         },
         content: {
-            MAX_LENGTH: 2000,
+            MAX_LENGTH: 20000,
             error: {
                 NOT_EMPTY: "Post content cannot be empty.",
                 EXCEED_LIMIT: "Post content cannot exceed a maximum of 2000 characters."

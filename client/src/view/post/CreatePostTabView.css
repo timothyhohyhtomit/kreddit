@@ -2,6 +2,7 @@
     margin: 5px;
     padding: 15px 15px 0 15px;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .post-create-tab:hover {

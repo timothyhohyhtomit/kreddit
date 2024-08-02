@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import CreatePostView from "../../view/post/CreatePostView";
 import { post } from "../../app/constant";
@@ -13,7 +13,20 @@ function CreatePostPage() {
     const [content, setContent] = useState("");
     // error
     const [error, setError] = useState([]);  // an array of error messages as strings
-    // handlers for submit create post request
+    // refs
+    const titleTextareaRef = useRef(null);
+    const contentTextareaRef = useRef(null);
+    // handlers
+    const handleTitleInputChange = (e) => {
+        titleTextareaRef.current.style.height = "inherit";
+        titleTextareaRef.current.style.height = `${titleTextareaRef.current.scrollHeight}px`;
+        setTitle(e.currentTarget.value);
+    };
+    const handleContentInputChange = (e) => {
+        contentTextareaRef.current.style.height = "inherit";
+        contentTextareaRef.current.style.height = `${contentTextareaRef.current.scrollHeight}px`;
+        setContent(e.currentTarget.value);
+    };
     const handleCreatePostSubmit = (e) => {
         // check for invalid fields
         const isValid = true;
@@ -66,8 +79,12 @@ function CreatePostPage() {
             setSelectedTab={setSelectedTab}
             title={title}
             setTitle={setTitle}
+            titleTextareaRef={titleTextareaRef}
             content={content}
             setContent={setContent}
+            contentTextareaRef={contentTextareaRef}
+            handleTitleInputChange={handleTitleInputChange}
+            handleContentInputChange={handleContentInputChange}
             handleCreatePostSubmit={handleCreatePostSubmit}
         />
     );
