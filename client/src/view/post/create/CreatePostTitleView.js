@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./CreatePostTitleView.css";
-import { post } from "../../app/constant";
+import { post } from "../../../app/constant";
 
 function CreatePostTitleView({ title, setTitle, titleTextareaRef, handleTitleInputChange, handleTitleInputBlur }) {
     return (

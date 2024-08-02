@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TAB_ENUM } from "../../app/constant";
+import { TAB_ENUM } from "../../../app/constant";
 import CreatePostHeaderView from "./CreatePostHeaderView";
 import CreatePostSelectTabsView from "./CreatePostSelectTabsView";
 import CreatePostTextBodyView from "./CreatePostTextBodyView";

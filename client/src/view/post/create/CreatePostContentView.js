@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./CreatePostContentView.css";
-import { post } from "../../app/constant";
+import { post } from "../../../app/constant";
 
 function CreatePostContentView({ content, setContent, contentTextareaRef, handleContentInputChange, handleContentInputBlur }) {
     return (

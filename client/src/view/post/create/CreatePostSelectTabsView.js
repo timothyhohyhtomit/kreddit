@@ -2,7 +2,7 @@ import React from "react";
 
 import "./CreatePostSelectTabsView.css";
 import CreatePostTabView from "./CreatePostTabView";
-import { post } from "../../app/constant";
+import { post } from "../../../app/constant";
 
 function CreatePostSelectTabsView({ selectedTab, setSelectedTab }) {
     return (

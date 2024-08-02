@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-import CreatePostView from "../../view/post/CreatePostView";
+import CreatePostView from "../../view/post/create/CreatePostView";
 import { post } from "../../app/constant";
 import { SERVER_URL } from "../../app/configuration";
 
