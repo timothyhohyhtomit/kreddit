@@ -1,0 +1,10 @@
+.search-result {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+}
+
+.search-result * {
+    box-sizing: border-box;
+}

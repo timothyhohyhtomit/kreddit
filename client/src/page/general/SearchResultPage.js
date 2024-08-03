@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import SearchResultView from "../../view/general/search-result/SearchResultView";
+
 function SearchResultPage() {
     // PARAMS
     const query = useParams().query;

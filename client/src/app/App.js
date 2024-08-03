@@ -4,6 +4,7 @@ import PostPage from "../page/post/PostPage";
 import CreatePostPage from "../page/post/CreatePostPage";
 import HomePage from "../page/general/MainPage";
 import Root from "../view/general/Root";
+import SearchResultPage from "../page/general/SearchResultPage";
 
 function App() {
     // STATES
@@ -28,6 +29,11 @@ function App() {
                         isLoggedIn={false}
                         user={null}
                     />
+                } />
+            </Route>
+            <Route path="search">
+                <Route path=":query" element={
+                    <SearchResultPage />
                 } />
             </Route>
         </Route>

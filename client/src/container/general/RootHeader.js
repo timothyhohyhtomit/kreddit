@@ -10,7 +10,11 @@ function RootHeader() {
     // NAVIGATE
     const navigate = useNavigate();
     // HANDLERS
-    const handleClickSearch = (e) => {};
+    const handleClickSearch = (e) => {
+        if (e.key === "Enter") {
+            navigate("/search/" + searchQuery);
+        }
+    };
     const handleClickCreatePost = (e) => {
         navigate("/post/create");
     };
@@ -18,6 +22,7 @@ function RootHeader() {
         <RootHeaderView
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
+            handleClickSearch={handleClickSearch}
             handleClickCreatePost={handleClickCreatePost}
         />
     );
