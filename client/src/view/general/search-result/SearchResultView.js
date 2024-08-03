@@ -9,7 +9,9 @@ function SearchResultView({ query, entries }) {
             <SearchResultOptionsView />
             { entries == null || entries.length === 0 ? 
                 <SearchResultNoEntriesView /> :
-                <SearchResultEntriesView />
+                <SearchResultEntriesView
+                    entries={entries}
+                />
             }
         </div>
     );
