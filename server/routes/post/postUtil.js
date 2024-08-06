@@ -1,5 +1,5 @@
 // database
-// import { query } from "../../db/util.js";
+import { query } from "../../db/util.js";
 // file system
 import fs from "fs";
 import { promisify } from "util";
