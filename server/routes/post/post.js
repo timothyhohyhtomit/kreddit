@@ -9,6 +9,7 @@ import multer from "multer";
 import path from "path";
 import url from "url";
 import fs from "fs";
+import { validateTitle } from "./postUtil.js";
 
 
 const postRouter = express.Router();
@@ -66,6 +67,8 @@ postRouter.post("/create", authenticateTokenL2, async (req, res) => {
     const { title, content } = req.body;
     // create a new post on database and return post_id
     try {
+        validateTitle(title);
+        validateContent(content);
         const postId = await addPost(ownerId, {
             title,
             content
