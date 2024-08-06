@@ -15,7 +15,8 @@ Throws:
 - an error with message about what makes the title invalid
 */
 export const validateTitle = (title) => {
-    if (title.length <= 0) throw new Error(post.create.title.error.NOT_EMPTY);
+    if (typeof title !== "string" && !(title instanceof String)) throw new Error(post.create.title.error.NOT_STRING);
+    else if (title.length <= 0) throw new Error(post.create.title.error.IS_EMPTY);
     else if (title.length > post.create.title.MAX_LENGTH) throw new Error(post.create.title.error.EXCEED_LIMIT);
     return;
 };
@@ -30,7 +31,8 @@ Throws:
 - an error with message about what makes the content invalid
 */
 export const validateContent = (content) => {
-    if (content.length <= 0) throw new Error(post.create.content.error.NOT_EMPTY);
+    if (typeof content !== "string" && !(content instanceof String)) throw new Error(post.create.content.error.NOT_STRING);
+    else if (content.length <= 0) throw new Error(post.create.content.error.IS_EMPTY);
     else if (content.length > post.create.content.MAX_LENGTH) throw new Error(post.create.content.error.EXCEED_LIMIT);
     return;
 };

@@ -9,14 +9,16 @@ export const post = {
         title: {
             MAX_LENGTH: 300,
             error: {
-                NOT_EMPTY: "Post title cannot be empty.",
+                NOT_STRING: "Post title must be a string.",
+                IS_EMPTY: "Post title cannot be empty.",
                 EXCEED_LIMIT: "Post title cannot exceed a maximum of 300 characters."
             }
         },
         content: {
             MAX_LENGTH: 20000,
             error: {
-                NOT_EMPTY: "Post content cannot be empty.",
+                NOT_STRING: "Post content must be a string.",
+                IS_EMPTY: "Post content cannot be empty.",
                 EXCEED_LIMIT: "Post content cannot exceed a maximum of 2000 characters."
             }
         },

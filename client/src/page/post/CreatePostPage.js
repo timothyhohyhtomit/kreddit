@@ -32,7 +32,7 @@ function CreatePostPage() {
         const isValid = true;
         // if title is empty or exceeds limit, show error message in error section
         if (title.trim().length === 0) {
-            setError((prev) => [...prev, post.create.title.error.NOT_EMPTY]);
+            setError((prev) => [...prev, post.create.title.error.IS_EMPTY]);
             isValid = false;
         } else if (title.trim().length > post.create.title.MAX_LENGTH) {
             setError((prev) => [...prev, post.create.title.error.EXCEED_LIMIT]);
@@ -40,7 +40,7 @@ function CreatePostPage() {
         }
         // if content is empty or exceeds limit, show error message in error section
         if (content.trim().length === 0) {
-            setError((prev) => [...prev, post.create.content.error.NOT_EMPTY]);
+            setError((prev) => [...prev, post.create.content.error.IS_EMPTY]);
             isValid = false;
         } else if (content.trim().length() > post.create.content.MAX_LENGTH) {
             setError((prev) => [...prev, post.create.content.error.EXCEED_LIMIT]);
