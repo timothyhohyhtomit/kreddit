@@ -1,7 +1,7 @@
 import pg from "pg";
 const { Pool } = pg;
 
-import { DB_HOST_URL, DB_HOST_PORT, DB_NAME, DB_USER, DB_PASSWORD } from "../configuration";
+import { DB_HOST_URL, DB_HOST_PORT, DB_NAME, DB_USER, DB_PASSWORD } from "../configuration.js";
 
 const pool = new Pool({
     host: DB_HOST_URL,

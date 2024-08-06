@@ -1,4 +1,4 @@
-import pool from "./conn";
+import pool from "./conn.js";
 
 /*
 query() queries the database whose specifictions are given by pool with query.

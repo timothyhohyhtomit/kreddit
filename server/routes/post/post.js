@@ -1,5 +1,6 @@
 import express from "express";
 import { authenticateTokenL1, authenticateTokenL2 } from "../../middleware/middleware.js";
+import { validateTitle } from "./postUtil.js";
 // database
 // import { query } from "../../db/util.js";
 // token authentication middleware
@@ -9,7 +10,6 @@ import multer from "multer";
 import path from "path";
 import url from "url";
 import fs from "fs";
-import { validateTitle } from "./postUtil.js";
 
 
 const postRouter = express.Router();

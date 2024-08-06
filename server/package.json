@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon app.js",
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive"
   },
   "keywords": [],
   "author": "",
@@ -26,8 +26,12 @@
     "pg": "^8.12.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.25.2",
+    "@babel/register": "^7.24.6",
     "chai": "^5.1.1",
     "mocha": "^10.7.0",
+    "mocha-junit-reporter": "^2.2.1",
     "supertest": "^7.0.0"
   }
 }

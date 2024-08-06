@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.010" tests="7" failures="6">
+  <testsuite name="Root Suite" timestamp="2024-08-06T21:36:50" tests="0" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Test postUtil.js" timestamp="2024-08-06T21:36:50" tests="0" file="C:\Users\Admin\Documents\projects\kreddit\server\test\routes\post\postUtil.test.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Test validateTitle()" timestamp="2024-08-06T21:36:50" tests="7" file="C:\Users\Admin\Documents\projects\kreddit\server\test\routes\post\postUtil.test.js" time="0.008" failures="6">
+    <testcase name="Test postUtil.js Test validateTitle() On input of number type, should throw NOT_STRING error" time="0.001" classname="On input of number type, should throw NOT_STRING error">
+      <failure message="expected [Function] to throw &apos;Error: Post title must be a string.&apos; but &apos;Error: Post title must be a string.&apos; was thrown" type="AssertionError"><![CDATA[AssertionError: expected [Function] to throw 'Error: Post title must be a string.' but 'Error: Post title must be a string.' was thrown
+    at Context.<anonymous> (file:///C:/Users/Admin/Documents/projects/kreddit/server/test/routes/post/postUtil.test.js:10:59)
+    at process.processImmediate (node:internal/timers:471:21)
+
+      + expected - actual
+
+]]></failure>
+    </testcase>
+    <testcase name="Test postUtil.js Test validateTitle() On input of boolean type, should throw NOT_STRING error" time="0.000" classname="On input of boolean type, should throw NOT_STRING error">
+      <failure message="expected [Function] to throw &apos;Error: Post title must be a string.&apos; but &apos;Error: Post title must be a string.&apos; was thrown" type="AssertionError"><![CDATA[AssertionError: expected [Function] to throw 'Error: Post title must be a string.' but 'Error: Post title must be a string.' was thrown
+    at Context.<anonymous> (file:///C:/Users/Admin/Documents/projects/kreddit/server/test/routes/post/postUtil.test.js:16:67)
+    at process.processImmediate (node:internal/timers:471:21)
+
+      + expected - actual
+
+]]></failure>
+    </testcase>
+    <testcase name="Test postUtil.js Test validateTitle() On input of object type, should throw NOT_STRING error" time="0.001" classname="On input of object type, should throw NOT_STRING error">
+      <failure message="expected [Function] to throw &apos;Error: Post title must be a string.&apos; but &apos;Error: Post title must be a string.&apos; was thrown" type="AssertionError"><![CDATA[AssertionError: expected [Function] to throw 'Error: Post title must be a string.' but 'Error: Post title must be a string.' was thrown
+    at Context.<anonymous> (file:///C:/Users/Admin/Documents/projects/kreddit/server/test/routes/post/postUtil.test.js:22:64)
+    at process.processImmediate (node:internal/timers:471:21)
+
+      + expected - actual
+
+]]></failure>
+    </testcase>
+    <testcase name="Test postUtil.js Test validateTitle() On input of array type, should throw NOT_STRING error" time="0.000" classname="On input of array type, should throw NOT_STRING error">
+      <failure message="expected [Function] to throw &apos;Error: Post title must be a string.&apos; but &apos;Error: Post title must be a string.&apos; was thrown" type="AssertionError"><![CDATA[AssertionError: expected [Function] to throw 'Error: Post title must be a string.' but 'Error: Post title must be a string.' was thrown
+    at Context.<anonymous> (file:///C:/Users/Admin/Documents/projects/kreddit/server/test/routes/post/postUtil.test.js:33:66)
+    at process.processImmediate (node:internal/timers:471:21)
+
+      + expected - actual
+
+]]></failure>
+    </testcase>
+    <testcase name="Test postUtil.js Test validateTitle() On input of an empty string, should throw an IS_EMPTY error" time="0.001" classname="On input of an empty string, should throw an IS_EMPTY error">
+      <failure message="expected [Function] to throw &apos;Error: Post title cannot be empty.&apos; but &apos;Error: Post title cannot be empty.&apos; was thrown" type="AssertionError"><![CDATA[AssertionError: expected [Function] to throw 'Error: Post title cannot be empty.' but 'Error: Post title cannot be empty.' was thrown
+    at Context.<anonymous> (file:///C:/Users/Admin/Documents/projects/kreddit/server/test/routes/post/postUtil.test.js:39:67)
+    at process.processImmediate (node:internal/timers:471:21)
+
+      + expected - actual
+
+]]></failure>
+    </testcase>
+    <testcase name="Test postUtil.js Test validateTitle() On input of a string longer than MAX_LENGTH, should throw an EXCEED_LIMIT error" time="0.000" classname="On input of a string longer than MAX_LENGTH, should throw an EXCEED_LIMIT error">
+      <failure message="expected [Function] to throw &apos;Error: Post title cannot exceed a max…&apos; but &apos;ReferenceError: titleEmptyString is n…&apos; was thrown" type="AssertionError"><![CDATA[AssertionError: expected [Function] to throw 'Error: Post title cannot exceed a max…' but 'ReferenceError: titleEmptyString is n…' was thrown
+    at Context.<anonymous> (file:///C:/Users/Admin/Documents/projects/kreddit/server/test/routes/post/postUtil.test.js:43:67)
+    at process.processImmediate (node:internal/timers:471:21)
+
+      + expected - actual
+
+      -ReferenceError: titleEmptyString is not defined
+      +Error: Post title cannot exceed a maximum of 300 characters.
+      ]]></failure>
+    </testcase>
+    <testcase name="Test postUtil.js Test validateTitle() On input of a valid string, should not throw any error and return" time="0.000" classname="On input of a valid string, should not throw any error and return">
+    </testcase>
+  </testsuite>
+</testsuites>
