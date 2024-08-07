@@ -22,3 +22,14 @@ export const querySync = (command) => {
         throw new Error(err);
     });
 };
+
+/*
+sanitiseString() escapes all single quotes in a string by replacing them with two single quotes, so that there is no issue inserting it to a database.
+Arguments:
+- str: a string to be sanitised
+Returns:
+- A string with all single quotes replaced by two single quotes, and trimmed.
+*/
+export const sanitiseString = (str) => {
+    return str.replaceAll("'", "''").trim();
+};

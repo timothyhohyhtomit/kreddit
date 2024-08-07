@@ -1,6 +1,6 @@
 import express from "express";
 import { authenticateTokenL1, authenticateTokenL2 } from "../../middleware/middleware.js";
-import { validateTitle } from "./postUtil.js";
+import { validateTitle, validateContent, addPost } from "./postUtil.js";
 // database
 // import { query } from "../../db/util.js";
 // token authentication middleware
@@ -10,6 +10,7 @@ import multer from "multer";
 import path from "path";
 import url from "url";
 import fs from "fs";
+import { sanitiseString } from "../../db/util.js";
 
 
 const postRouter = express.Router();
@@ -61,21 +62,24 @@ Input:
 - post: object
 Output:
 */
-postRouter.post("/create", authenticateTokenL2, async (req, res) => {
+postRouter.post("/create", authenticateTokenL1, async (req, res) => {
     // extract user_id
-    const ownerId = req.user.id;
-    const { title, content } = req.body;
+    // extract title and content
     // create a new post on database and return post_id
     try {
+        const ownerId = 1;//req.user.id;
+        const { title, content } = req.body;
         validateTitle(title);
         validateContent(content);
+        console.log(`sanitised string: ${sanitiseString(content)}`);
         const postId = await addPost(ownerId, {
             title,
-            content
+            content: sanitiseString(content)
         });
         res.status(201).json({
             postId
         });
+        return;
     } catch (err) {
         res.status(500).json({
             error: "Could not create a post: " + err.message

@@ -1,5 +1,5 @@
 // database
-import { query } from "../../db/util.js";
+import { query, sanitiseString } from "../../db/util.js";
 import { post } from "../../constant.js";
 // file system
 import fs from "fs";
@@ -100,7 +100,7 @@ Output:
 export const addPost = (ownerId, post) => {
     return query(`
         INSERT INTO post (owner_id, title, content)
-        VALUES (${ownerId}, '${post.title}', '${post.content}')
+        VALUES (${ownerId}, '${post.title}', '${sanitiseString(post.content)}')
         RETURNING id
     `).then(result => result[0].id)
     .catch(err => {

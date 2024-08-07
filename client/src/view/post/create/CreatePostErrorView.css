@@ -1,0 +1,25 @@
+.post-create-errors {
+    box-sizing: border-box;
+    border: 10px solid #f00;
+    border-radius: 10px;
+    clear: both;
+    margin: 20px;
+    padding: 5px 20px;
+}
+
+.post-create-errors * {
+    box-sizing: border-box;
+}
+
+.post-create-errors-text {
+    font-size: 100%;
+}
+
+.post-create-errors-list {
+    margin: 5px;
+    padding: 5px;
+}
+
+.post-create-errors-item {
+    font-size: 100%;
+}

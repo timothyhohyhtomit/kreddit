@@ -1,0 +1,10 @@
+.post-create-buttons {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin: 0;
+    padding: 10px;
+}

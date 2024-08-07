@@ -4,10 +4,12 @@ import { TAB_ENUM } from "../../../app/constant";
 import CreatePostHeaderView from "./CreatePostHeaderView";
 import CreatePostSelectTabsView from "./CreatePostSelectTabsView";
 import CreatePostTextBodyView from "./CreatePostTextBodyView";
+import CreatePostErrorView from "./CreatePostErrorView";
+import CreatePostButtonsView from "./CreatePostButtonsView";
 
 import "./CreatePostView.css";
 
-function CreatePostView({ selectedTab, setSelectedTab, title, setTitle, titleTextareaRef, content, setContent, contentTextareaRef, handleTitleInputChange, handleTitleInputBlur, handleContentInputChange, handleContentInputBlur, handleCreatePostSubmit }) {
+function CreatePostView({ selectedTab, setSelectedTab, title, setTitle, titleTextareaRef, content, setContent, errors, contentTextareaRef, handleTitleInputChange, handleTitleInputBlur, handleContentInputChange, handleContentInputBlur, handleCreatePostSubmit }) {
     return (
         <div className="post-create">
             <CreatePostHeaderView />
@@ -28,6 +30,14 @@ function CreatePostView({ selectedTab, setSelectedTab, title, setTitle, titleTex
                     handleContentInputBlur={handleContentInputBlur}
                 />
             }
+            { errors && errors.length > 0 &&
+                <CreatePostErrorView
+                    errors={errors}
+                />
+            }
+            <CreatePostButtonsView
+                handleCreatePostSubmit={handleCreatePostSubmit}
+            />
         </div>
     );
 }

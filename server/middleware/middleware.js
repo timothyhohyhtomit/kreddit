@@ -19,6 +19,7 @@ export const authenticateTokenL1 = (req, res, next) => {
     if (!authHeader || !token) {  // authorization header missing or access token missing
         req.user = null;
         next();
+        return;
     }
     jwt.verify(token, ACCESS_TOKEN_SECRET, (err, user) => {
         // access token has been tampered with

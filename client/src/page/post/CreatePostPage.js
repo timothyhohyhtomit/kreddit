@@ -12,7 +12,7 @@ function CreatePostPage() {
     // content
     const [content, setContent] = useState("");
     // error
-    const [error, setError] = useState([]);  // an array of error messages as strings
+    const [errors, setErrors] = useState([]);  // an array of error messages as strings
     // refs
     const titleTextareaRef = useRef(null);
     const contentTextareaRef = useRef(null);
@@ -28,40 +28,40 @@ function CreatePostPage() {
         setContent(e.currentTarget.value);
     };
     const handleCreatePostSubmit = (e) => {
+        setErrors([]);
         // check for invalid fields
-        const isValid = true;
+        let isValid = true;
         // if title is empty or exceeds limit, show error message in error section
         if (title.trim().length === 0) {
-            setError((prev) => [...prev, post.create.title.error.IS_EMPTY]);
+            setErrors((prev) => [...prev, post.create.title.error.IS_EMPTY]);
             isValid = false;
         } else if (title.trim().length > post.create.title.MAX_LENGTH) {
-            setError((prev) => [...prev, post.create.title.error.EXCEED_LIMIT]);
+            setErrors((prev) => [...prev, post.create.title.error.EXCEED_LIMIT]);
             isValid = false;
         }
         // if content is empty or exceeds limit, show error message in error section
         if (content.trim().length === 0) {
-            setError((prev) => [...prev, post.create.content.error.IS_EMPTY]);
+            setErrors((prev) => [...prev, post.create.content.error.IS_EMPTY]);
             isValid = false;
-        } else if (content.trim().length() > post.create.content.MAX_LENGTH) {
-            setError((prev) => [...prev, post.create.content.error.EXCEED_LIMIT]);
+        } else if (content.trim().length > post.create.content.MAX_LENGTH) {
+            setErrors((prev) => [...prev, post.create.content.error.EXCEED_LIMIT]);
             isValid = false;
         }
         if (isValid) {
             // send a request to server
             fetch(SERVER_URL + "/post/create", {
                 method: "POST",
-                /*
                 headers: {
-                    "Authorization": "Bearer " + localStorage.getItem("access_token")
+                    "Content-Type": "application/json"
+                   // "Authorization": "Bearer " + localStorage.getItem("access_token")
                 },
-                */
-                body: {
+                body: JSON.stringify({
                     title,
                     content
-                }
+                })
             }).then(response => {
                 if (response.status !== 201) {
-                    setError((prev) => [...prev, post.create.error.SERVER_ERROR]);
+                    setErrors((prev) => [...prev, post.create.error.SERVER_ERROR]);
                 }
                 return response.json();
             }).then(jsonData => {
@@ -82,6 +82,7 @@ function CreatePostPage() {
             titleTextareaRef={titleTextareaRef}
             content={content}
             setContent={setContent}
+            errors={errors}
             contentTextareaRef={contentTextareaRef}
             handleTitleInputChange={handleTitleInputChange}
             handleContentInputChange={handleContentInputChange}
