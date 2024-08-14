@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import PostView from "../../view/post/PostView";
+import InfoBoxView from "../../view/post/InfoBoxView";
 import { SERVER_URL } from "../../app/configuration";
 
 function PostPage({ isLoggedIn, user }) {
@@ -62,7 +63,9 @@ function PostPage({ isLoggedIn, user }) {
                 handlePostAddCommentClickSubmit={handlePostAddCommentClickSubmit}
                 addCommentInputRef={addCommentInputRef}
             />
-            {/*<InfoBoxView />*/}
+            <InfoBoxView
+                numMembers="1"
+            />
         </>
     );
 }

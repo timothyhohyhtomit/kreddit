@@ -2,6 +2,8 @@ import React from "react";
 
 import PostAddCommentView from "./comment/PostAddCommentView";
 
+import "./PostView.css";
+
 function PostView({ authorProfilePictureUrl, authorUsername, likeCount, title, content, newComment, setNewComment, handlePostAddCommentClickSubmit, addCommentInputRef }) {
     return (
         <div className="post">

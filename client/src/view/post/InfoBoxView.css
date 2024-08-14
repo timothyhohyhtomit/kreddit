@@ -1,6 +1,7 @@
 .info-box {
     width: 30%;
     box-sizing: border-box;
+    float: right;
 }
 
 .info-box * {

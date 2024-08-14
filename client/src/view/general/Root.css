@@ -1,0 +1,18 @@
+.root {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.root * {
+    box-sizing: border-box;
+}
+
+.root-separator {
+    width: 100%;
+}
+
+.root-outlet {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}

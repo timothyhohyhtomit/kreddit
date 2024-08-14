@@ -2,7 +2,7 @@ import React from "react";
 
 import "./InfoBoxView.css";
 
-function InfoBoxView(numMembers) {
+function InfoBoxView({ numMembers }) {
     return (
         <div className="info-box">
             <div className="info-box-main">

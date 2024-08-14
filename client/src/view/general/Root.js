@@ -3,6 +3,8 @@ import { Outlet } from "react-router-dom";
 
 import RootHeader from "../../container/general/RootHeader";
 
+import "./Root.css";
+
 function Root({ isLoggedIn, user, searchQuery, setSearchQuery, handleClickSearch, handleClickCreatePost }) {
     return (
         <div className="root">
