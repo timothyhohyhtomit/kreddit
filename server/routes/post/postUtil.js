@@ -43,9 +43,23 @@ getPost() queries the database for the details of a post in JSON syntax.
 export const getPost = async (postId) => {
     return Promise.all([
         query(`
+            SELECT
+                p.id AS id,
+                p.owner_id AS owner_id,
+                a.username AS owner_username,
+                p.title,
+                p.content,
+                p.create_at,
+                p.is_archived,
+                p.is_deleted,
+                p.is_banned
+            FROM post p
+            LEFT JOIN account a
+            ON p.owner_id = a.id
+            WHERE p.id = ${postId};
         `),
         //getPostMedia(postId),
-        getPostLikeCount(postId),
+        getPostVote(postId),
         getPostComments(postId)
     ]).then((values) => {
         const post = values[0][0];
@@ -79,14 +93,38 @@ Inputs:
 Output:
 - number of likes: int
 */
-export const getPostLikeCount = (postId) => {
+export const getPostVote = (postId) => {
     return query(`
         SELECT COUNT(*) AS like_count
         FROM post_vote
+        WHERE post_id = ${postId}
     `).then(result => parseInt(result[0].like_count))
     .catch(err => {
         throw new Error(err.message);
     });
+};
+
+/* Post Comment Fetching
+getPostComments() returns all comments of a post as an array of objects, in an arbitrary order.
+Inputs:
+- postId: int
+Output:
+- an array of objects
+*/
+export const getPostComments = (postId) => {
+    return query(`
+        SELECT
+            pc.id AS id,
+            pc.author_id AS author_id,
+            a.username AS author_username,
+            pc.parent_id AS parent_id,
+            pc.content AS content,
+            pc.create_at AS create_at
+        FROM post_comment pc
+        LEFT JOIN account a
+        ON pc.author_id = a.id
+        WHERE pc.post_id = ${postId} AND pc.is_deleted IS FALSE AND pc.is_banned IS FALSE AND a.is_deleted IS FALSE AND a.is_banned IS FALSE
+    `);
 };
 
 /* Post Creation

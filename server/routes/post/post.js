@@ -1,6 +1,6 @@
 import express from "express";
 import { authenticateTokenL1, authenticateTokenL2 } from "../../middleware/middleware.js";
-import { validateTitle, validateContent, addPost } from "./postUtil.js";
+import { validateTitle, validateContent, getPost, addPost } from "./postUtil.js";
 // database
 // import { query } from "../../db/util.js";
 // token authentication middleware
@@ -46,14 +46,25 @@ postRouter.use("./images", express.static(path.join(__dirname, "images")));
 }
 */
 postRouter.get("/:postId", authenticateTokenL1, async (req, res) => {
-    // extract user_id, post_id and author_id
-    const userId = req.user.id;
+    // check if postId is a valid integer
     const postId = parseInt(req.params.postId);
     if (isNaN(postId)) res.status(404).json({
-        error: "Post (id=" + postId + ") does not exist."
+        error: "Post id (" + postId + ") is invalid."
     });
-    // request post details
-    return getPost(postId);
+    // extract user_id, post_id and author_id
+    try {
+        //const userId = req.user.id;
+        // request post details
+        const post = await getPost(postId);
+        res.status(200).json({
+            post
+        });
+    } catch (err) {
+        res.status(404).json({
+            error: err.message
+        });
+    } finally {
+    }
 });
 
 /* Post Creation

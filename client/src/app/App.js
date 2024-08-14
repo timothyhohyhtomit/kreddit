@@ -5,6 +5,7 @@ import CreatePostPage from "../page/post/CreatePostPage";
 import HomePage from "../page/general/MainPage";
 import Root from "../view/general/Root";
 import SearchResultPage from "../page/general/SearchResultPage";
+import Sandbox from "../page/general/Sandbox";
 
 function App() {
     // STATES
@@ -16,6 +17,10 @@ function App() {
         <Route path="/" element={<Root isLoggedIn={isLoggedIn} user={user} />}>
             <Route index element={
                 <HomePage />
+            } />
+            {/* Testing plotly */}
+            <Route path="sandbox" element={
+                <Sandbox />
             } />
             <Route path="post">
                 <Route path=":postId" element={

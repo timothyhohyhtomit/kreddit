@@ -15,6 +15,13 @@ function PostPage({ isLoggedIn, user }) {
     const navigate = useNavigate();
     // effects
     useEffect(() => {
+        let s = "";
+        for (const key of Object.keys(post)) {
+            s += `${key}: ${post[key]}\n`;
+        }
+        alert(s);
+    }, [post]);
+    useEffect(() => {
         // fetch post based on post id
         // invalid post id
         if (isNaN(postId)) {
@@ -30,7 +37,7 @@ function PostPage({ isLoggedIn, user }) {
             return response.json();
         }).then(jsonData => {
             if (jsonData.error) throw new Error(jsonData.error);
-            setPost(jsonData);
+            setPost(jsonData.post);
         }).catch(err => {
             alert("Post (post_id=" + postId + ") is unavailable: " + err.message);
         });
@@ -44,16 +51,19 @@ function PostPage({ isLoggedIn, user }) {
     }
     const handlePostAddCommentClickSubmit = (e) => {};
     return (
-        <PostView
-            authorProfilePictureUrl={post.author_avatar_url}
-            authorUsername={post.author_username}
-            title={post.title}
-            content={post.content}
-            newComment={newComment}
-            setNewComment={setNewComment}
-            handlePostAddCommentClickSubmit={handlePostAddCommentClickSubmit}
-            addCommentInputRef={addCommentInputRef}
-        />
+        <>
+            <PostView
+                authorProfilePictureUrl={post.author_avatar_url}
+                authorUsername={post.author_username}
+                title={post.title}
+                content={post.content}
+                newComment={newComment}
+                setNewComment={setNewComment}
+                handlePostAddCommentClickSubmit={handlePostAddCommentClickSubmit}
+                addCommentInputRef={addCommentInputRef}
+            />
+            {/*<InfoBoxView />*/}
+        </>
     );
 }
 
