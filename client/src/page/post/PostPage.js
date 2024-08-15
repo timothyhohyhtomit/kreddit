@@ -54,10 +54,11 @@ function PostPage({ isLoggedIn, user }) {
     return (
         <>
             <PostView
-                authorProfilePictureUrl={post.author_avatar_url}
-                authorUsername={post.author_username}
+                ownerProfilePictureUrl={post.owner_avatar_url}
+                ownerUsername={post.owner_username}
                 title={post.title}
                 content={post.content}
+                upvoteCount={post.upvote_count}
                 newComment={newComment}
                 setNewComment={setNewComment}
                 handlePostAddCommentClickSubmit={handlePostAddCommentClickSubmit}

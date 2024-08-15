@@ -67,7 +67,7 @@ export const getPost = async (postId) => {
         else if (post.is_banned) throw new Error("This post contains content this is against our policy and is under review.");
         // post available, extract media, like count and comments
         //const postMedia = values[1];
-        const postLikeCount = values[1];
+        const postUpvoteCount = values[1];
         const postComments = values[2].map((comment) => {
             return {
                 ...comment//,
@@ -77,7 +77,7 @@ export const getPost = async (postId) => {
         return {
             ...post,
             //media: postMedia,
-            like_count: postLikeCount,
+            upvote_count: postUpvoteCount,
             comments: postComments
         };
     }).catch(err => {

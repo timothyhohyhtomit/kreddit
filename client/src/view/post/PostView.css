@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     margin: 15px auto;
-    padding: 10px;
+    padding: 15px;
     float: left;
 }
 
@@ -26,16 +26,33 @@
 .post-author-profile-picture {
     width: 20%;
     max-width: 60px;
+    border-radius: 50%;
+    background-color: orange;
+}
+
+.post-author {
+    border-radius: 999px;
+    background-color: transparent;
+    font-family: 'Varela Round', sans-serif;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.post-author:hover {
+    background-color: #e7e7e7;
 }
 
 .post-title {
     width: 100%;
+    font-size: 200%;
+    font-weight: 500;
     margin: 5px auto;
     padding: 10px;
 }
 
 .post-content {
     width: 100%;
+    font-size: 100%;
     margin: 5px auto;
     padding: 10px;
 }
@@ -48,6 +65,37 @@
 
 .post-reaction-buttons {
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
     margin: 5px auto;
     padding: 10px;
+}
+
+.post-reaction-button {
+    background-color: #e7e7e7;
+    border-radius: 999px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.post-likes {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+.post-upvote, .post-upvote-count, .post-downvote {
+    margin: 0 5px;
+}
+
+.post-comment-count {
+}
+
+.post-share {
+}
+
+.post-save {
 }
