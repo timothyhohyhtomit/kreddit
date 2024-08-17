@@ -73,6 +73,11 @@
 
 .sudoku-cell input {
     width: 2ch;
-    margin: 0;
+    font-size: 200%;
+    text-align: center;
+    background: transparent;
+    border: none;
+    outline: none;
+    margin: 0 auto;
     padding: 0;
 }
