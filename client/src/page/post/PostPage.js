@@ -15,6 +15,7 @@ function PostPage({ isLoggedIn, user }) {
     // navigate
     const navigate = useNavigate();
     // effects
+    /*
     useEffect(() => {
         let s = "";
         for (const key of Object.keys(post)) {
@@ -22,6 +23,7 @@ function PostPage({ isLoggedIn, user }) {
         }
         alert(s);
     }, [post]);
+    */
     useEffect(() => {
         // fetch post based on post id
         // invalid post id
@@ -59,6 +61,7 @@ function PostPage({ isLoggedIn, user }) {
                 title={post.title}
                 content={post.content}
                 upvoteCount={post.upvote_count}
+                comments={post.comments}
                 newComment={newComment}
                 setNewComment={setNewComment}
                 handlePostAddCommentClickSubmit={handlePostAddCommentClickSubmit}

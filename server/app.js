@@ -6,6 +6,7 @@ import multer from "multer";
 import path from "path";
 import url from "url";
 import { authenticateTokenL2 } from "./middleware/middleware.js";
+import sudokuRouter from "./routes/sudoku/sudoku.js";
 
 const app = express();
 const PORT = 5000;
@@ -25,6 +26,9 @@ app.use((err, req, res, next) => {
 // routes
 //app.use("/user", userRouter);
 app.use("/post", postRouter);
+
+// sudoku
+app.use("/sudoku", sudokuRouter);
 
 // configure Multer storage
 const storage = multer.diskStorage({

@@ -1,12 +1,12 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
+import { faBookmark, faCaretDown, faCaretUp, faComment, faShare } from "@fortawesome/free-solid-svg-icons";
 
 import PostAddCommentView from "./comment/PostAddCommentView";
 
 import "./PostView.css";
 
-function PostView({ ownerProfilePictureUrl, ownerUsername, title, content, upvoteCount, newComment, setNewComment, handlePostAddCommentClickSubmit, addCommentInputRef }) {
+function PostView({ ownerProfilePictureUrl, ownerUsername, title, content, upvoteCount, comments, newComment, setNewComment, handlePostAddCommentClickSubmit, addCommentInputRef }) {
     return (
         <div className="post">
             <div className="post-header">
@@ -26,9 +26,18 @@ function PostView({ ownerProfilePictureUrl, ownerUsername, title, content, upvot
                         <FontAwesomeIcon icon={faCaretDown} />
                     </div>
                 </div>
-                <div className="post-reaction-button post-comment-count"></div>
-                <div className="post-reaction-button post-share"></div>
-                <div className="post-reaction-button post-save"></div>
+                <div className="post-reaction-button post-comment-count">
+                    <FontAwesomeIcon icon={faComment} />&nbsp;&nbsp;
+                    { comments && comments.length ? comments.length : 0 }
+                </div>
+                <div className="post-reaction-button post-share">
+                    <FontAwesomeIcon icon={faShare} />&nbsp;
+                    Share
+                </div>
+                <div className="post-reaction-button post-save">
+                    <FontAwesomeIcon icon={faBookmark} />&nbsp;
+                    Save
+                </div>
             </div>
             <PostAddCommentView
                 newComment={newComment}

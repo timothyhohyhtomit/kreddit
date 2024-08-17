@@ -63,7 +63,6 @@ postRouter.get("/:postId", authenticateTokenL1, async (req, res) => {
         res.status(404).json({
             error: err.message
         });
-    } finally {
     }
 });
 

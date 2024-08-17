@@ -6,6 +6,7 @@ import HomePage from "../page/general/MainPage";
 import Root from "../view/general/Root";
 import SearchResultPage from "../page/general/SearchResultPage";
 import Sandbox from "../page/general/Sandbox";
+import SudokuPage from "../page/general/SudokuPage";
 
 function App() {
     // STATES
@@ -21,6 +22,10 @@ function App() {
             {/* Testing plotly */}
             <Route path="sandbox" element={
                 <Sandbox />
+            } />
+            {/* Testing sudoku */}
+            <Route path="sudoku" element={
+                <SudokuPage />
             } />
             <Route path="post">
                 <Route path=":postId" element={
