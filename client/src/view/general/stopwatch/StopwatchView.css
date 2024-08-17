@@ -1,0 +1,30 @@
+.stopwatch {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+.stopwatch-text {
+    font-size: 100%;
+    margin: 0 5px;
+    padding: 0;
+}
+
+.stopwatch-time {
+    font-size: 100%;
+    margin: 0 5px;
+    padding: 0;
+}
+
+.stopwatch-pause-resume {
+    background-color: #e7e7e7;
+    margin: 0 5px;
+    padding: 0;
+}
+
+.stopwatch-start-reset {
+    background-color: #e7e7e7;
+    margin: 0 5px;
+    padding: 0;
+}
