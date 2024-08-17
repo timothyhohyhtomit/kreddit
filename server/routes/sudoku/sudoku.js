@@ -1,5 +1,6 @@
 import express from "express";
 import { query } from "../../db/util";
+import { validateDifficulty } from "./sudokuUtil";
 
 const sudokuRouter = express.Router();
 sudokuRouter.use(express.json());
@@ -27,5 +28,26 @@ sudokuRouter.get("/:difficulty", (req, res) => {
     });
 
 });
+
+sudokuRouter.post("/create", (req, res) => {
+    const { difficulty, problem } = req.body;
+    try {
+        validateDifficulty(difficulty);
+        validateProblem(problem);
+    } catch (err) {
+        res.status(500).json({
+            error: "Could not create a new sudoku puzzle: " + err.message
+        });
+    }
+    query(`
+        INSERT INTO (difficulty, grid)
+        VALUES (${difficulty}, '${problem}')
+        RETURNING id
+    `).then(result => result[0].id)
+    .catch(err => {
+        console.log("POST /create: " + err.message);
+        throw new Error(err);
+    });
+})
 
 export default sudokuRouter;
