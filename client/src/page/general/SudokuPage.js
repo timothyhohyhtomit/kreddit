@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SERVER_URL } from "../../app/configuration";
 import SudokuView from "../../view/general/sudoku/SudokuView";
-import GenerateSudokuView from "../../view/general/sudoku/GenerateSudokuView";
+import SudokuMenuView from "../../view/general/sudoku/SudokuMenuView";
 
 function SudokuPage() {
     const DIFFICULTY = {
@@ -11,11 +11,14 @@ function SudokuPage() {
         EXPERT: 3
     };
     const DIFFICULTY_TEXT = ["Easy", "Medium", "Hard", "Expert"];
-    const [problem, setProblem] = useState(Array(81));
+    const [problem, setProblem] = useState(null);
     const [difficulty, setDifficulty] = useState(DIFFICULTY.EASY);
     const [grid, setGrid] = useState(Array(81).fill(0));
+    const [isContributeHidden, setContributeHidden] = useState(true);
+    const [contributeDifficulty, setContributeDifficulty] = useState(null);
+    const [contribute, setContribute] = useState("");
     // handlers
-    const handleClickGenerateSudoku = (difficulty) => {
+    const handleClickLoadSudoku = (difficulty) => {
         fetch(SERVER_URL + "/sudoku/" + difficulty)
         .then(response => response.json())
         .then(jsonData => {
@@ -28,6 +31,7 @@ function SudokuPage() {
             alert("Unable to generate a sudoku: " + err.message);
         });
     };
+    const handleClickSubmitSudoku = (difficulty, problem) => {};
     const handleChangeCell = (i, j, val) => {
         setGrid((prev) => {
             const nextGrid = [...prev];
@@ -42,7 +46,18 @@ function SudokuPage() {
                 difficulty={difficulty}
                 grid={grid}
                 handleChangeCell={handleChangeCell}
-            /> : <GenerateSudokuView />
+            /> : 
+            <SudokuMenuView
+                difficulties={DIFFICULTY_TEXT}
+                handleClickLoadSudoku={handleClickLoadSudoku}
+                isContributeHidden={isContributeHidden}
+                setContributeHidden={setContributeHidden}
+                contributeDifficulty={contributeDifficulty}
+                setContributeDifficulty={setContributeDifficulty}
+                contribute={contribute}
+                setContribute={setContribute}
+                handleClickSubmitSudoku={handleClickSubmitSudoku}
+            />
         }
         </>
     );

@@ -7,6 +7,7 @@ function SudokuView({ difficulty, grid, handleChangeCell }) {
     return (
         <div className="sudoku">
             <div className="sudoku-header">
+                <h1>Sudoku</h1>
                 <div className="sudoku-difficulty">Difficulty: {difficulty}</div>
                 <Stopwatch />
             </div>

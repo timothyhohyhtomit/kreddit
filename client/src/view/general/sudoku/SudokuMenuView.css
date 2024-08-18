@@ -1,0 +1,101 @@
+.sudoku-menu {
+    width: 70%;
+    box-sizing: border-box;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.sudoku-menu * {
+    box-sizing: border-box;
+}
+
+.sudoku-load {
+    width: 100%;
+    margin: 10px auto;
+    padding: 5px;
+}
+
+.sudoku-load-title {
+    font-size: 200%;
+}
+
+.sudoku-load-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 5px auto;
+    padding: 5px;
+}
+
+.sudoku-load-button {
+    background-color: #e7e7e7;
+    border: none;
+    border-radius: 999px;
+    outline: none;
+    cursor: pointer;
+    font-size: 100%;
+    margin: 10px;
+    padding: 10px;
+}
+
+.sudoku-load-button:hover {
+    background-color: #d7d7d7;
+}
+
+.sudoku-contribute {
+    width: 100%;
+    margin: 10px auto;
+    padding: 5px;
+}
+
+.sudoku-contribute-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sudoku-contribute-title {
+    font-size: 200%;
+}
+
+.sudoku-contribute-collapse {
+    background-color: #e7e7e7;
+    border: none;
+    border-radius: 999px;
+    outline: none;
+    cursor: pointer;
+    font-size: 100%;
+    margin: 0;
+    padding: 10px;
+}
+
+.sudoku-contribute-collapse:hover {
+    background-color: #d0d0d0;
+}
+
+.sudoku-contribute-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sudoku-contribute-input {}
+
+.sudoku-contribute-submit {
+    background-color: #55f;
+    border: none;
+    border-radius: 999px;
+    color: #fff;
+    font-size: 100%;
+    margin: 5px;
+    padding: 10px;
+}
+
+.sudoku-contribute-submit:hover {
+    background-color: #00f;
+}
