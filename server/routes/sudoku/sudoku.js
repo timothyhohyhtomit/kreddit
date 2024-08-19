@@ -1,6 +1,6 @@
 import express from "express";
-import { query } from "../../db/util";
-import { validateDifficulty } from "./sudokuUtil";
+import { query } from "../../db/util.js";
+import { validateDifficulty, validateProblem } from "./sudokuUtil.js";
 
 const sudokuRouter = express.Router();
 sudokuRouter.use(express.json());
@@ -12,7 +12,7 @@ sudokuRouter.get("/:difficulty", (req, res) => {
     });
     query(`
         SELECT *
-        FROM problem
+        FROM sudoku
         WHERE difficulty = ${difficulty}
         ORDER BY random()
         LIMIT 1;
@@ -29,7 +29,7 @@ sudokuRouter.get("/:difficulty", (req, res) => {
 
 });
 
-sudokuRouter.post("/create", (req, res) => {
+sudokuRouter.post("/create", async (req, res) => {
     const { difficulty, problem } = req.body;
     try {
         validateDifficulty(difficulty);
@@ -39,14 +39,16 @@ sudokuRouter.post("/create", (req, res) => {
             error: "Could not create a new sudoku puzzle: " + err.message
         });
     }
-    query(`
-        INSERT INTO (difficulty, grid)
+    await query(`
+        INSERT INTO sudoku(difficulty, grid)
         VALUES (${difficulty}, '${problem}')
         RETURNING id
-    `).then(result => result[0].id)
-    .catch(err => {
+    `).then(result => {
+        res.status(201).json({
+            puzzle_id: result[0].id
+        });
+    }).catch(err => {
         console.log("POST /create: " + err.message);
-        throw new Error(err);
     });
 })
 

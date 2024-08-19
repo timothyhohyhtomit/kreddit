@@ -37,7 +37,7 @@ function SudokuMenuView({ difficulties, handleClickLoadSudoku, isContributeHidde
                                 </ul>
                             </div>
                         )}
-                        <input className="sudoku-contribute-submit" type="submit" onClick={(e) => handleClickSubmitSudoku(0, contribute)} />
+                        <input className="sudoku-contribute-submit" type="submit" onClick={(e) => handleClickSubmitSudoku(contributeDifficulty, contribute)} />
                     </div>
                 }
             </div>

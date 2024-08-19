@@ -3,12 +3,12 @@ import React from "react";
 import "./SudokuView.css";
 import Stopwatch from "../../../container/general/stopwatch/Stopwatch";
 
-function SudokuView({ difficulty, grid, handleChangeCell }) {
+function SudokuView({ difficulties, difficulty, grid, handleChangeCell }) {
     return (
         <div className="sudoku">
             <div className="sudoku-header">
                 <h1>Sudoku</h1>
-                <div className="sudoku-difficulty">Difficulty: {difficulty}</div>
+                <div className="sudoku-difficulty">Difficulty: {difficulties[difficulty]}</div>
                 <Stopwatch />
             </div>
             <div className="sudoku-body">

@@ -28,10 +28,10 @@ function SudokuPage() {
         .then(response => response.json())
         .then(jsonData => {
             if (jsonData.error) throw new Error(jsonData.error);
-            const row = jsonData.problem;
-            setProblem(row.grid.split(""));
-            setGrid(row.grid.split(""));
-            setDifficulty(row.difficulty);
+            const puzzle = jsonData.problem;
+            setProblem(puzzle.split(""));
+            setGrid(puzzle.split(""));
+            setDifficulty(difficulty);
         }).catch(err => {
             alert("Unable to generate a sudoku: " + err.message);
         });
@@ -67,7 +67,7 @@ function SudokuPage() {
         }
         // check for duplicate values in each row
         for (let i = 0; i < 9; i++) {
-            const set = Set();
+            const set = new Set();
             for (let j = 0; j < 9; j++) {
                 const c = problem.charCodeAt(i * 9 + j);
                 if (c === 48) continue;  // '0'
@@ -81,7 +81,7 @@ function SudokuPage() {
         }
         // check for duplicate values in each column
         for (let j = 0; j < 9; j++) {
-            const set = Set();
+            const set = new Set();
             for (let i = 0; i < 9; i++) {
                 const c = problem.charCodeAt(i * 9 + j);
                 if (c === 48) continue;  // '0'
@@ -96,7 +96,7 @@ function SudokuPage() {
         // check for duplicate values in each subsquare
         for (let i = 0; i < 9; i += 3) {
             for (let j = 0; j < 9; j += 3) {
-                const set = Set();
+                const set = new Set();
                 for (let p = 0; p < 3; p++) {
                     for (let q = 0; q < 3; q++) {
                         const c = problem.charCodeAt((i + p) * 9 + j + q);
@@ -125,13 +125,10 @@ function SudokuPage() {
                 difficulty,
                 problem
             })
-        }).then(response => {
-            if (response.status === 201) {
-                setProblem(problem.split(""));
-            } else {
-                setContributeErrors(["Server error."]);
-            }
-            return response.json();
+        }).then(response => response.json())
+        .then(jsonData => {
+            if (jsonData.error) throw new Error(jsonData.error);
+            const puzzleId = jsonData.puzzle_id;
         }).catch(err => {
             setContributeErrors(["Server error: " + err.message]);
         });
@@ -147,6 +144,7 @@ function SudokuPage() {
         <>
         { (problem && problem.length == 81) ?
             <SudokuView
+                difficulties={DIFFICULTY_TEXT}
                 difficulty={difficulty}
                 grid={grid}
                 handleChangeCell={handleChangeCell}

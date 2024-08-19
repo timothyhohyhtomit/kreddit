@@ -16,7 +16,7 @@ export const validateProblem = (problem) => {
     else if (problem.length !== 81) throw new Error("Problem must be of length 81, but has length " + problem.length);
     for (let i = 0; i < problem.length; i++) {
         const d = problem.charCodeAt(i);
-        if ((d < 49 || d > 57) && d !== 120) throw new Error("Problem must contain only digit 1 to 9 or x");
+        if (d < 48 || d > 57) throw new Error("Problem must contain only digit 1 to 9 or x");
     }
     return;
 };
