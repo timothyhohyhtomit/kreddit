@@ -28,13 +28,15 @@ function SudokuMenuView({ difficulties, handleClickLoadSudoku, isContributeHidde
                         <div className="sudoku-contribute-input">
                             <input type="text" maxLength="81" size="81" value={contribute} onChange={(e) => setContribute(e.currentTarget.value)} />
                         </div>
-                        <div className="sudoku-contribute-errors">
-                            <ul className="sudoku-contribute-errors-list">
-                                { contributeErrors && contributeErrors.map((error) => (
-                                    <li className="sudoku-contribute-errors-item">{error}</li>
-                                ))}
-                            </ul>
-                        </div>
+                        { contributeErrors && contributeErrors.length > 0 && (
+                            <div className="sudoku-contribute-errors">
+                                <ul className="sudoku-contribute-errors-list">
+                                    { contributeErrors.map((error) => (
+                                        <li className="sudoku-contribute-errors-item">{error}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
                         <input className="sudoku-contribute-submit" type="submit" onClick={(e) => handleClickSubmitSudoku(0, contribute)} />
                     </div>
                 }

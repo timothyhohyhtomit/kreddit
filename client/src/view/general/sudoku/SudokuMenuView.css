@@ -86,6 +86,24 @@
 
 .sudoku-contribute-input {}
 
+.sudoku-contribute-errors {
+    box-sizing: border-box;
+    border: 10px solid #f00;
+    border-radius: 10px;
+    clear: both;
+    margin: 20px;
+    padding: 5px 20px;
+}
+
+.sudoku-contribute-errors-list {
+    margin: 5px;
+    padding: 5px;
+}
+
+.sudoku-contribute-errors-item {
+    font-size: 100%;
+}
+
 .sudoku-contribute-submit {
     background-color: #55f;
     border: none;
