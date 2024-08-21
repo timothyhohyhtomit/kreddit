@@ -8,9 +8,10 @@ function SudokuPage() {
         EASY: 0,
         MEDIUM: 1,
         HARD: 2,
-        EXPERT: 3
+        EXPERT: 3,
+        MASTER: 4
     };
-    const DIFFICULTY_TEXT = ["Easy", "Medium", "Hard", "Expert"];
+    const DIFFICULTY_TEXT = ["Easy", "Medium", "Hard", "Expert", "Master"];
     const [problem, setProblem] = useState(null);
     const [difficulty, setDifficulty] = useState(DIFFICULTY.EASY);
     const [grid, setGrid] = useState(Array(81).fill(0));
@@ -129,6 +130,7 @@ function SudokuPage() {
         .then(jsonData => {
             if (jsonData.error) throw new Error(jsonData.error);
             const puzzleId = jsonData.puzzle_id;
+            alert(`Puzzle (id = ${puzzleId}) has been successfully created!`);
         }).catch(err => {
             setContributeErrors(["Server error: " + err.message]);
         });
