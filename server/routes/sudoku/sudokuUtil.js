@@ -2,12 +2,13 @@ export const DIFFICULTY = {
     EASY: 0,
     MEDIUM: 1,
     HARD: 2,
-    EXPERT: 3
+    EXPERT: 3,
+    MASTER: 4
 };
 
 export const validateDifficulty = (difficulty) => {
     if (typeof difficulty !== "number" && !(difficulty instanceof Number)) throw new Error("Invalid Difficulty");
-    else if (difficulty < DIFFICULTY.EASY || difficulty > DIFFICULTY.EXPERT) throw new Error("Difficulty out of range");
+    else if (difficulty < DIFFICULTY.EASY || difficulty > DIFFICULTY.MASTER) throw new Error("Difficulty out of range");
     return;
 };
 

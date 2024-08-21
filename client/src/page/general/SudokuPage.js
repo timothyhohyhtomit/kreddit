@@ -41,7 +41,7 @@ function SudokuPage() {
         setContributeErrors([]);
         const errors = [];
         // verify difficulty is valid
-        if (difficulty < DIFFICULTY.EASY || difficulty > DIFFICULTY.EXPERT) {
+        if (difficulty < DIFFICULTY.EASY || difficulty > DIFFICULTY.MASTER) {
             errors.push("Difficulty level is out of range.");
         }
         // convert all 'x' and 'X' to '0'
